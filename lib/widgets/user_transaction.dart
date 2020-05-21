@@ -1,7 +1,7 @@
-import 'dart:ffi';
+
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+
 
 import './new_transaction.dart';
 import './transaction_list.dart';
@@ -13,7 +13,7 @@ class UserTransactions extends StatefulWidget {
 }
 
 class _UserTransactionsState extends State<UserTransactions> {
-  final List<Transaction> _transactions = [
+  final List<Transaction> transactions = [
     Transaction(
       amount: 59.99,
       id: 't1',
@@ -36,7 +36,7 @@ class _UserTransactionsState extends State<UserTransactions> {
     );
 
     setState(() {
-      _transactions.add(tx);
+      transactions.add(tx);
     });
   }
 
@@ -45,7 +45,7 @@ class _UserTransactionsState extends State<UserTransactions> {
     return Column(
       children: <Widget>[
         NewTransaction(_addTransaction),
-        TransactionList(_transactions),
+        TransactionList(transactions),
       ],
     );
   }
